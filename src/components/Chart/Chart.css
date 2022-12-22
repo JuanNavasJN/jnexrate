@@ -1,0 +1,23 @@
+#chart {
+  background-color: #0e2141;
+  width: 1010px;
+  height: 600px;
+  border-radius: 5px;
+}
+
+/* Breakpoint: 1024px */
+@media (max-width: 1024px) {
+  #chart {
+    width: 90vw;
+    height: 500px;
+  }
+}
+
+/* Breakpoint: 425px */
+@media (max-width: 425px) {
+  #chart {
+    width: 100vw;
+    height: 400px;
+    border-radius: 0px;
+  }
+}
