@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { PAIR_OPTIONS } from '../util/constants';
 
-interface Rate {
+export interface Rates {
   [symbol: string]: number;
 }
 
@@ -17,7 +17,7 @@ export const getRates = async () => {
 
     const currencies = PAIR_OPTIONS.map(pair => pair.label.split(' / ')[1]);
 
-    const rates: Rate = {};
+    const rates: Rates = {};
 
     for (let currency of currencies) {
       if (currency !== 'USD') {
