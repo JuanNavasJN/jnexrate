@@ -26,8 +26,14 @@ const Form: React.FunctionComponent = () => {
           </select>
         </div>
         <div className="container">
-          <input id="currency-1" className="field" placeholder="Amount 1" />
-          <input id="currency-2" className="field" placeholder="Amount 2" />
+          <div className="currency-container">
+            <span className="symbol">BRL</span>
+            <input id="currency-1" className="field" placeholder="0.0" />
+          </div>
+          <div className="currency-container">
+            <span className="symbol">USD</span>
+            <input id="currency-2" className="field" placeholder="0.0" />
+          </div>
         </div>
       </form>
     </section>
