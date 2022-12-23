@@ -1,11 +1,16 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { PAIR_OPTIONS } from '../../util/constants';
 import { PairContext } from '../../contexts';
+import { getRates } from '../../helpers';
 
 import './Form.css';
 
 const Form: React.FunctionComponent = () => {
   const { currency1, currency2, setPair } = useContext(PairContext);
+
+  useEffect(() => {
+    getRates().then(res => console.log(res));
+  }, []);
 
   return (
     <section id="form-section">
