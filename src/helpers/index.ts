@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { PAIR_OPTIONS } from '../util/constants';
-import { fiatResponseMock } from '../util/mockData';
 
 interface Rate {
   [symbol: string]: number;
@@ -12,18 +11,9 @@ export const getRates = async () => {
       'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd'
     );
 
-    let fiatResponse;
-
-    if (import.meta.env.DEV) {
-      fiatResponse = fiatResponseMock;
-    } else {
-      const data = await axios.get(
-        `https://v6.exchangerate-api.com/v6/${
-          import.meta.env.VITE_EXCHANGE_RATE_API_KEY
-        }/latest/USD`
-      );
-      fiatResponse = data;
-    }
+    const { data: fiatResponse } = await axios.get(
+      'https://api.exchangerate.host/latest?base=USD'
+    );
 
     const currencies = PAIR_OPTIONS.map(pair => pair.label.split(' / ')[1]);
 
@@ -31,7 +21,7 @@ export const getRates = async () => {
 
     for (let currency of currencies) {
       if (currency !== 'USD') {
-        rates[currency] = fiatResponse.conversion_rates[currency] || 0;
+        rates[currency] = fiatResponse.rates[currency] || 0;
       }
     }
     rates['BTC'] = cryptoResponse.bitcoin.usd;
