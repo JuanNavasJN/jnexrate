@@ -4,7 +4,7 @@ import { AdvancedRealTimeChart } from 'react-ts-tradingview-widgets';
 import './Chart.css';
 
 const Chart: React.FunctionComponent = () => {
-  const [symbol] = useState('EURUSD');
+  const [symbol] = useState('BRLUSD');
 
   return (
     <section id="chart-section">
