@@ -1,11 +1,11 @@
 export const PAIR_OPTIONS = [
-  { value: 'BRLUSD', label: 'BRL / USD' },
-  { value: 'EURUSD', label: 'EUR / USD' },
+  { value: 'USDBRL', label: 'USD / BRL' },
+  { value: 'USDEUR', label: 'USD / EUR' },
   { value: 'COINBASE:BTCUSD', label: 'BTC / USD' },
-  { value: 'MXNUSD', label: 'MXN / USD' },
-  { value: 'JPYUSD', label: 'JPY / USD' },
-  { value: 'INRUSD', label: 'INR / USD' },
-  { value: 'AEDUSD', label: 'AED / USD' },
-  { value: 'ZARUSD', label: 'ZAR / USD' },
-  { value: 'AUDUSD', label: 'AUD / USD' }
+  { value: 'USDMXN', label: 'USD / MXN' },
+  { value: 'USDJPY', label: 'USD / JPY' },
+  { value: 'USDINR', label: 'USD / INR' },
+  { value: 'USDAED', label: 'USD / AED' },
+  { value: 'USDZAR', label: 'USD / ZAR' },
+  { value: 'USDAUD', label: 'USD / AUD' }
 ];
