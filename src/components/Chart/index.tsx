@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { PairContext } from '../../contexts';
 import { AdvancedRealTimeChart } from 'react-ts-tradingview-widgets';
 
 import './Chart.css';
 
 const Chart: React.FunctionComponent = () => {
-  const [symbol] = useState('BRLUSD');
+  const { pair } = useContext(PairContext);
 
   return (
     <section id="chart-section">
       <div id="chart">
         <AdvancedRealTimeChart
-          symbol={symbol}
+          symbol={pair}
           theme="dark"
           autosize
           hide_side_toolbar

@@ -1,24 +1,22 @@
+import { useContext } from 'react';
+import { PAIR_OPTIONS } from '../../util/constants';
+import { PairContext } from '../../contexts';
+
 import './Form.css';
 
-const options = [
-  { value: 'BRLUSD', label: 'BRL / USD' },
-  { value: 'EURUSD', label: 'EUR / USD' },
-  { value: 'COINBASE:BTCUSD', label: 'BTC / USD' },
-  { value: 'MXNUSD', label: 'MXN / USD' },
-  { value: 'JPYUSD', label: 'JPY / USD' },
-  { value: 'INRUSD', label: 'INR / USD' },
-  { value: 'AEDUSD', label: 'AED / USD' },
-  { value: 'ZARUSD', label: 'ZAR / USD' },
-  { value: 'AUDUSD', label: 'AUD / USD' }
-];
-
 const Form: React.FunctionComponent = () => {
+  const { currency1, currency2, setPair } = useContext(PairContext);
+
   return (
     <section id="form-section">
       <form id="form">
         <div className="container select">
-          <select id="pair" className="field">
-            {options.map(opt => (
+          <select
+            id="pair"
+            className="field"
+            onChange={e => setPair(e.target.value)}
+          >
+            {PAIR_OPTIONS.map(opt => (
               <option key={opt.value} value={opt.value}>
                 {opt.label}
               </option>
@@ -27,11 +25,11 @@ const Form: React.FunctionComponent = () => {
         </div>
         <div className="container">
           <div className="currency-container">
-            <span className="symbol">BRL</span>
+            <span className="symbol">{currency1}</span>
             <input id="currency-1" className="field" placeholder="0.0" />
           </div>
           <div className="currency-container">
-            <span className="symbol">USD</span>
+            <span className="symbol">{currency2}</span>
             <input id="currency-2" className="field" placeholder="0.0" />
           </div>
         </div>
