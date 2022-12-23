@@ -25,17 +25,16 @@ export const getRates = async () => {
       fiatResponse = data;
     }
 
-    const currencies = PAIR_OPTIONS.map(pair => pair.label.split(' / ')[0]);
+    const currencies = PAIR_OPTIONS.map(pair => pair.label.split(' / ')[1]);
 
     const rates: Rate = {};
 
     for (let currency of currencies) {
-      if (currency === 'BTC') {
-        rates['BTC'] = cryptoResponse.bitcoin.usd;
-      } else {
+      if (currency !== 'USD') {
         rates[currency] = fiatResponse.conversion_rates[currency] || 0;
       }
     }
+    rates['BTC'] = cryptoResponse.bitcoin.usd;
 
     return rates;
   } catch (e) {
