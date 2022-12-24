@@ -1,0 +1,18 @@
+#form select#pair {
+  width: 280px;
+
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#form select#pair option {
+  margin: 10px 0px;
+}
+
+/* Breakpoint: 720px */
+@media (max-width: 720px) {
+  #form select#pair {
+    width: 250px;
+    margin-bottom: 20px;
+  }
+}

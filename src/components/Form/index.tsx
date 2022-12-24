@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
-import { PAIR_OPTIONS } from '../../util/constants';
 import { PairContext } from '../../contexts';
-import { getRates, Rates } from '../../helpers';
+import { getRates, RatesType } from '../../helpers';
+import PairSelect from './PairSelect';
+import CurrencyInput from './CurrencyInput';
 
 import './Form.css';
 
@@ -9,7 +10,7 @@ const Form: React.FunctionComponent = () => {
   const { currency1, currency2, setPair, pair } = useContext(PairContext);
   const [amount1, setAmount1] = useState('');
   const [amount2, setAmount2] = useState('');
-  const [rates, setRates] = useState<Rates>();
+  const [rates, setRates] = useState<RatesType>();
 
   const floatPrecision = 4;
 
@@ -71,40 +72,18 @@ const Form: React.FunctionComponent = () => {
   return (
     <section id="form-section">
       <form id="form">
-        <div className="container select">
-          <select
-            id="pair"
-            className="field"
-            onChange={e => setPair(e.target.value)}
-          >
-            {PAIR_OPTIONS.map(opt => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        <PairSelect setPair={setPair} />
         <div className="container">
-          <div className="currency-container">
-            <span className="symbol">{currency1}</span>
-            <input
-              value={amount1}
-              onChange={handleAmount1Change}
-              id="currency-1"
-              className="field"
-              placeholder="0.0"
-            />
-          </div>
-          <div className="currency-container">
-            <span className="symbol">{currency2}</span>
-            <input
-              id="currency-2"
-              value={amount2}
-              onChange={handleAmount2Change}
-              className="field"
-              placeholder="0.0"
-            />
-          </div>
+          <CurrencyInput
+            currency={currency1}
+            amount={amount1}
+            onChange={handleAmount1Change}
+          />
+          <CurrencyInput
+            currency={currency2}
+            amount={amount2}
+            onChange={handleAmount2Change}
+          />
         </div>
       </form>
     </section>

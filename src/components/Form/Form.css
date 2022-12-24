@@ -11,12 +11,6 @@
   flex-direction: column;
 }
 
-#form input.field {
-  margin: 20px 0;
-  padding: 0 10px 0 62px;
-  max-width: 240px;
-}
-
 #form .field {
   background-color: #0e2141;
   border: none;
@@ -26,35 +20,8 @@
   color: #ffffff;
 }
 
-#form input::placeholder {
-  color: #6d8cb4;
-}
-
 #form .field:focus {
   outline: 2px solid #00a3ff;
-}
-
-#form select#pair {
-  width: 280px;
-
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-#form select#pair option {
-  margin: 10px 0px;
-}
-
-#form .currency-container {
-  position: relative;
-}
-
-#form .symbol {
-  font-size: 20px;
-  color: #b8b8b8;
-  position: absolute;
-  top: 39px;
-  left: 12px;
 }
 
 /* Breakpoint: 1350px */
@@ -65,19 +32,6 @@
 
   #form > .container {
     flex-direction: row;
-  }
-
-  #form input.field {
-    margin: 10px 20px;
-  }
-
-  #form input#pair {
-    margin-bottom: 25px;
-  }
-
-  #form .symbol {
-    top: 29px;
-    left: 32px;
   }
 }
 
@@ -93,20 +47,5 @@
 
   #form .field {
     height: 50px;
-  }
-
-  #form select#pair {
-    width: 250px;
-    margin-bottom: 20px;
-  }
-
-  #form input.field {
-    margin: 10px 0;
-    padding: 0 10px 0 60px;
-  }
-
-  #form .symbol {
-    top: 23px;
-    left: 10px;
   }
 }

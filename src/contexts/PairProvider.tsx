@@ -4,11 +4,11 @@ import { PairContext } from './';
 
 const initialPair = PAIR_OPTIONS[0].value;
 
-interface PairProviderProps {
+interface PairProviderPropsType {
   children?: React.ReactNode;
 }
 
-const PairProvider: React.FunctionComponent<PairProviderProps> = ({
+const PairProvider: React.FunctionComponent<PairProviderPropsType> = ({
   children
 }) => {
   const [pair, setPair] = useState(initialPair);
