@@ -3,6 +3,7 @@ import { PairContext } from '../../contexts';
 import { getRates, RatesType } from '../../helpers';
 import PairSelect from './PairSelect';
 import CurrencyInput from './CurrencyInput';
+import loaderSVG from '../../assets/loader.svg';
 
 import './Form.css';
 
@@ -71,21 +72,27 @@ const Form: React.FunctionComponent = () => {
 
   return (
     <section id="form-section">
-      <form id="form">
-        <PairSelect setPair={setPair} />
-        <div className="container">
-          <CurrencyInput
-            currency={currency1}
-            amount={amount1}
-            onChange={handleAmount1Change}
-          />
-          <CurrencyInput
-            currency={currency2}
-            amount={amount2}
-            onChange={handleAmount2Change}
-          />
+      {!rates ? (
+        <div className="loader-container">
+          <img src={loaderSVG} />
         </div>
-      </form>
+      ) : (
+        <form id="form">
+          <PairSelect setPair={setPair} />
+          <div className="container">
+            <CurrencyInput
+              currency={currency1}
+              amount={amount1}
+              onChange={handleAmount1Change}
+            />
+            <CurrencyInput
+              currency={currency2}
+              amount={amount2}
+              onChange={handleAmount2Change}
+            />
+          </div>
+        </form>
+      )}
     </section>
   );
 };

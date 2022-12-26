@@ -1,3 +1,8 @@
+#form-section .loader-container {
+  text-align: center;
+  padding: 20px;
+}
+
 #form {
   margin-top: 120px;
   margin-right: 40px;
